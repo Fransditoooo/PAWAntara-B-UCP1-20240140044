@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <main>
+    <section class="chat-section">
+      <h1>Tanya AI</h1>
+      <p>Punya pertanyaan seputar jam buka, ongkir, cara bayar, atau stok? Tanya di sini!</p>
+
+      <div id="chatBox" class="chat-box" aria-live="polite" aria-label="Riwayat percakapan"></div>
+
+      <form id="chatForm" class="chat-form" novalidate>
+        <div class="form-group chat-input-group">
+          <label for="chatMessage" class="sr-only">Tulis pertanyaan kamu</label>
+          <textarea
+            id="chatMessage"
+            name="message"
+            rows="2"
+            placeholder="Tulis pertanyaan kamu di sini..."
+            required
+          ></textarea>
+          <button type="submit" class="btn btn-primary">Kirim</button>
+        </div>
+        <p id="chatError" class="form-error" role="alert"></p>
+      </form>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+  <script src="/js/chat.js"></script>
+</body>
+</html>

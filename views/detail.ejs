@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <main>
+    <% if (!product) { %>
+      <section class="not-found">
+        <h1>Produk tidak ditemukan</h1>
+        <p>Maaf, produk dengan ID tersebut tidak tersedia di toko kami.</p>
+        <a href="/produk" class="btn btn-primary">Kembali ke Daftar Produk</a>
+      </section>
+    <% } else { %>
+      <section class="product-detail">
+        <article>
+          <h1><%= product.name %></h1>
+          <p class="product-category">Kategori: <%= product.category %></p>
+          <p class="product-price">Rp<%= product.price.toLocaleString('id-ID') %></p>
+          <p class="product-stock">Stok tersedia: <%= product.stock %></p>
+          <a href="/produk" class="btn btn-outline">&larr; Kembali</a>
+        </article>
+      </section>
+    <% } %>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
