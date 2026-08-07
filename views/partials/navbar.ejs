@@ -1,0 +1,29 @@
+<header class="site-header">
+  <nav class="navbar" aria-label="Navigasi utama">
+    <a href="/" class="navbar-brand">🛒 Toko Sembako Ariesta</a>
+
+    <button
+      class="hamburger"
+      id="hamburgerBtn"
+      aria-label="Buka menu navigasi"
+      aria-expanded="false"
+      aria-controls="navMenu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="/" class="<%= typeof activePage !== 'undefined' && activePage === 'home' ? 'active' : '' %>">Beranda</a></li>
+      <li><a href="/produk" class="<%= typeof activePage !== 'undefined' && activePage === 'produk' ? 'active' : '' %>">Produk</a></li>
+      <li><a href="/tanya-ai" class="<%= typeof activePage !== 'undefined' && activePage === 'tanya-ai' ? 'active' : '' %>">Tanya AI</a></li>
+      <% if (typeof username !== 'undefined' && username) { %>
+        <li><a href="/dashboard" class="<%= typeof activePage !== 'undefined' && activePage === 'dashboard' ? 'active' : '' %>">Dashboard</a></li>
+        <li><button id="logoutBtn" class="nav-logout-btn">Logout (<%= username %>)</button></li>
+      <% } else { %>
+        <li><a href="/login" class="<%= typeof activePage !== 'undefined' && activePage === 'login' ? 'active' : '' %>">Login</a></li>
+      <% } %>
+    </ul>
+  </nav>
+</header>
