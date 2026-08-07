@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Belanja Sembako Jadi Lebih Mudah</h1>
+        <p>
+          Toko Sembako Ariesta menyediakan beras, minyak goreng, gula, telur,
+          dan kebutuhan rumah tangga lainnya dengan harga bersahabat.
+          Cek stok terbaru atau tanya langsung ke fitur Tanya AI kami!
+        </p>
+        <div class="hero-actions">
+          <a href="/produk" class="btn btn-primary">Lihat Produk</a>
+          <a href="/tanya-ai" class="btn btn-secondary">Tanya AI</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="preview-section" aria-labelledby="preview-heading">
+      <h2 id="preview-heading">Produk Pilihan</h2>
+      <div class="product-grid">
+        <% preview.forEach(function(p) { %>
+          <article class="product-card">
+            <h3><%= p.name %></h3>
+            <p class="product-category"><%= p.category %></p>
+            <p class="product-price">Rp<%= p.price.toLocaleString('id-ID') %></p>
+            <p class="product-stock">Stok: <%= p.stock %></p>
+            <a href="/produk/<%= p.id %>" class="btn btn-outline">Lihat Detail</a>
+          </article>
+        <% }); %>
+      </div>
+      <div class="see-all">
+        <a href="/produk">Lihat semua produk &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
